@@ -13,7 +13,7 @@ namespace Tests.NewStudio.Services
             _Storage = storage;
         }
 
-        public IMoneySum Add(IMoneySum firstSum, IMoneySum secondSum, string targetCurrency)
+        public IMoneySum Add(IMoneySum firstSum, IMoneySum secondSum, ICurrency targetCurrency)
         {
             if (_Storage == null)
                 throw new CurrencyRateStorageNotPresentException();
@@ -23,7 +23,7 @@ namespace Tests.NewStudio.Services
 
             if (_Storage.Find(firstRate) is decimal rate1 && rate1  > 0 
                 && _Storage.Find(secondRate) is decimal rate2 && rate2 > 0)
-                return new MoneySum(targetCurrency, firstSum.Value * rate1 + secondSum.Value * rate2);
+                return new MoneySum(targetCurrency, firstSum.Amount * rate1 + secondSum.Amount * rate2);
 
             throw new CurrencyRateNotFoundException();
         }

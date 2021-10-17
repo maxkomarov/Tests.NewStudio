@@ -1,27 +1,24 @@
-﻿using System;
-using System.Text;
-using Tests.NewStudio.Interfaces;
+﻿using Tests.NewStudio.Interfaces;
 
 namespace Tests.NewStudio.Models
 {
     public class CurrencyRate : ICurrencyRate
     {
-        public string From { get; set; }
-        public string To { get; set; }
+        public ICurrency From { get; set; }
+        public ICurrency To { get; set; }
         public decimal Rate { get; set; }
 
         public CurrencyRate() { }
 
-        public CurrencyRate(string from, string to, decimal rate)
+        public CurrencyRate(ICurrency from, ICurrency to, decimal rate)
         {
             From = from;
             To = to;
             Rate = rate;            
         }
 
-        public virtual string BuildKey()
-        {
-            return $"{From}{To}";
-        }
+        public virtual string BuildKey() => $"{From.GetKey()}{To.GetKey()}";
+
+        public override string ToString() => $"{From}/{To}={ Rate:d}";
     }
 }

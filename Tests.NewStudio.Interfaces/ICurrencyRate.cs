@@ -10,11 +10,11 @@ namespace Tests.NewStudio.Interfaces
         /// <summary>
         /// Валюта-делимое (X)
         /// </summary>
-        string From { get; set; }
+        ICurrency From { get; set; }
         /// <summary>
         /// Валюта - делитель (Y)
         /// </summary>
-        string To { get; set; }
+        ICurrency To { get; set; }
         /// <summary>
         /// Соотношение валют
         /// </summary>

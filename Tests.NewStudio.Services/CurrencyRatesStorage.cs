@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Tests.NewStudio.Interfaces;
+using Tests.NewStudio.Models;
 
 namespace Tests.NewStudio.Services
 {
@@ -30,6 +32,16 @@ namespace Tests.NewStudio.Services
         {
             string key = rateParameters.BuildKey();
             return _Storage.GetValueOrDefault(key, 0); 
+        }
+
+        public IEnumerable<ICurrencyRate> GetAll()
+        {
+            return _Storage.Select(
+                rate => 
+                    new CurrencyRate(
+                        new Currency(rate.Key.Substring(0, 3)), 
+                        new Currency(rate.Key.Substring(3, 3)), 
+                        rate.Value));
         }
     }
 }

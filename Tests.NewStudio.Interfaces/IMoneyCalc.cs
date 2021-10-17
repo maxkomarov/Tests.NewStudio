@@ -19,6 +19,6 @@ namespace Tests.NewStudio.Interfaces
         /// <param name="firstSum">Первое слагаемое или уменьшаемое</param>
         /// <param name="secondSum">Второе слагаемое или вычитаемое</param>
         /// <returns>Сумма в валюте</returns>
-        IMoneySum Add(IMoneySum firstSum, IMoneySum secondSum, string targetCurrency);
+        IMoneySum Add(IMoneySum firstSum, IMoneySum secondSum, ICurrency targetCurrency);
     }
 }

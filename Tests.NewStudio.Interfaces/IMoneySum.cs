@@ -8,10 +8,10 @@
         /// <summary>
         /// Сумма
         /// </summary>
-        decimal Value { get; set; }
+        decimal Amount { get; set; }
         /// <summary>
         /// Валюта суммы
         /// </summary>
-        string Currency { get; set; }
+        ICurrency Currency { get; set; }
     }
 }

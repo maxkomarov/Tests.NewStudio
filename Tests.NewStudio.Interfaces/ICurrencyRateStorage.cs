@@ -1,4 +1,6 @@
-﻿namespace Tests.NewStudio.Interfaces
+﻿using System.Collections.Generic;
+
+namespace Tests.NewStudio.Interfaces
 {
     /// <summary>
     /// Контракт хранилища курсов
@@ -27,5 +29,11 @@
         /// </summary>
         /// <param name="rateParameters"></param>
         decimal Find(ICurrencyRate rateParameters);
+
+        /// <summary>
+        /// Получить весь список курсов
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<ICurrencyRate> GetAll();
     }
 }

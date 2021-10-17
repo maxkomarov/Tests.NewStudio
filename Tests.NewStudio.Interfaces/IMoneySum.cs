@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tests.NewStudio.Interfaces
+﻿namespace Tests.NewStudio.Interfaces
 {
     /// <summary>
     /// Контракт денежной суммы в некоей валюте
@@ -18,6 +12,6 @@ namespace Tests.NewStudio.Interfaces
         /// <summary>
         /// Валюта суммы
         /// </summary>
-        ICurrency Currency { get; set; }
+        string Currency { get; set; }
     }
 }

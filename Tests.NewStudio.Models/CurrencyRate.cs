@@ -1,18 +1,27 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
+using Tests.NewStudio.Interfaces;
 
 namespace Tests.NewStudio.Models
 {
-    [Table("CurrencyRates")]
-    public class CurrencyRate : DataEntity
+    public class CurrencyRate : ICurrencyRate
     {
-        [ForeignKey("")]
-        public Guid From { get; set; }
-        public Guid To { get; set; }
-        public decimal Limit { get; set; }
-        public decimal BuyRate { get; set; }
-        public decimal SellRate { get; set; }
-        public DateTime Dated { get; set; }
-        public Guid CurrencyRateProvider { get; set; }
+        public string From { get; set; }
+        public string To { get; set; }
+        public decimal Rate { get; set; }
+
+        public CurrencyRate() { }
+
+        public CurrencyRate(string from, string to, decimal rate)
+        {
+            From = from;
+            To = to;
+            Rate = rate;            
+        }
+
+        public virtual string BuildKey()
+        {
+            return $"{From}{To}";
+        }
     }
 }

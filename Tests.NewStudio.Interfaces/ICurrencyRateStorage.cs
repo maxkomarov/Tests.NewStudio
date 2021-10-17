@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Tests.NewStudio.Interfaces
+﻿namespace Tests.NewStudio.Interfaces
 {
     /// <summary>
     /// Контракт хранилища курсов
@@ -12,14 +10,22 @@ namespace Tests.NewStudio.Interfaces
         /// </summary>
         /// <param name="currencyRate"></param>
         void Add(ICurrencyRate currencyRate);
+
         /// <summary>
-        /// Найти курс
+        /// Проверить наличие курса в хранилище
         /// </summary>
-        ICurrencyRate Get(
-            ICurrency from,
-            ICurrency to,
-            DateTime dated,
-            decimal sum,
-            ICurrencyRateProvider currencyRateProvider);
+        bool Contains(ICurrencyRate currencyRate);
+
+        /// <summary>
+        /// Удалить курс
+        /// </summary>
+        /// <param name="currencyRate"></param>
+        void Delete(ICurrencyRate currencyRate);
+
+        /// <summary>
+        /// Найти курсс указанными параметрами
+        /// </summary>
+        /// <param name="rateParameters"></param>
+        decimal Find(ICurrencyRate rateParameters);
     }
 }

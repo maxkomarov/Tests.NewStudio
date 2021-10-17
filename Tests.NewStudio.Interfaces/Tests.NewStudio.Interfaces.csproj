@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Tests.NewStudio.Interfaces</RootNamespace>
     <AssemblyName>Tests.NewStudio.Interfaces</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,13 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICurrency.cs" />
-    <Compile Include="ICurrencyConversionResult.cs" />
-    <Compile Include="ICurrencyConverter.cs" />
     <Compile Include="ICurrencyRate.cs" />
-    <Compile Include="ICurrencyRateProvider.cs" />
     <Compile Include="ICurrencyRateStorage.cs" />
-    <Compile Include="IEntity.cs" />
     <Compile Include="IMoneyCalc.cs" />
     <Compile Include="IMoneySum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

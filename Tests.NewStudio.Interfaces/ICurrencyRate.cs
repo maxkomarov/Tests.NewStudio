@@ -3,37 +3,26 @@
 namespace Tests.NewStudio.Interfaces
 {
     /// <summary>
-    /// Контракт отношения между валютами Z = X/Y
+    /// Контракт отношения между валютами
     /// </summary>
     public interface ICurrencyRate
     {
         /// <summary>
         /// Валюта-делимое (X)
         /// </summary>
-        ICurrency From { get; set; }
+        string From { get; set; }
         /// <summary>
         /// Валюта - делитель (Y)
         /// </summary>
-        ICurrency To { get; set; }
+        string To { get; set; }
         /// <summary>
-        /// Количественный лимит
+        /// Соотношение валют
         /// </summary>
-        decimal Limit { get; set; }
+        decimal Rate { get; set; }        
         /// <summary>
-        /// Соотношение для покупки (Z)
+        /// Метод построителя ключа
         /// </summary>
-        decimal BuyRate { get; set; }
-        /// <summary>
-        /// Соотношение для продажи (Z)
-        /// </summary>
-        decimal SellRate { get; set; }
-        /// <summary>
-        /// Дата-время фиксации отношения
-        /// </summary>
-        DateTime Dated { get; set; }
-        /// <summary>
-        /// Провайдер курса
-        /// </summary>
-        ICurrencyRateProvider CurrencyRateProvider { get; set; }
+        /// <returns></returns>
+        string BuildKey();
     }
 }

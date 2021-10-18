@@ -3,7 +3,6 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using Tests.NewStudio.Interfaces;
-using Tests.NewStudio.Models;
 using Tests.NewStudio.Services;
 
 namespace Tests.NewStudio.WebApi.Controllers
@@ -22,10 +21,9 @@ namespace Tests.NewStudio.WebApi.Controllers
         [HttpGet]
         public IEnumerable<ViewModels.CurrencyRate> GetAll()
         {
+            //Использование здесь источника данных напрямую - только как заглушка. Чтобы можно было проверить работоспособность АПИ
             ICurrencyRateStorage storage = new CurrencyRatesStorage();
-            storage.Add(new CurrencyRate(new Currency("RUR"), new Currency("USD"), 70));
-            storage.Add(new CurrencyRate(new Currency("RUR"), new Currency("EUR"), 80));
-            storage.Add(new CurrencyRate(new Currency("RUR"), new Currency("GBP"), 90));
+            
             return storage.GetAll().Select(currencyRate => new ViewModels.CurrencyRate(currencyRate));
         }
     }

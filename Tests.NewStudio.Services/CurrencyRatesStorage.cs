@@ -10,6 +10,14 @@ namespace Tests.NewStudio.Services
     {
         private readonly SortedDictionary<string, decimal> _Storage = new();
 
+        public CurrencyRatesStorage()
+        {
+            //Фейковые данные "чтобы было"
+            _Storage.Add("RURCHF", 100);
+            _Storage.Add("RUREUR", 80);
+            _Storage.Add("RURGBP", 90);
+        }
+
         public void Add(ICurrencyRate currencyRate)
         {
             string key = currencyRate.BuildKey();
